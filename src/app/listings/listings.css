@@ -1,0 +1,76 @@
+mat-tab-group .mat-mdc-tab .mdc-tab__text-label {
+  font-family: "Rubik", sans-serif !important;
+}
+
+mat-tab-group .mat-mdc-tab-body-content {
+  overflow: hidden !important;
+}
+
+mat-tab-group .mat-mdc-tab-body-content {
+  overflow: auto !important;
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
+
+mat-tab-group .mat-mdc-tab-body-content::-webkit-scrollbar {
+  display: none; 
+}
+
+.listing-table {
+  width: 100%;
+  color: black;
+  border-bottom: 1px solid rgb(171, 171, 227);
+  margin-top: 25px;
+  text-align: left;
+  table-layout: fixed; 
+  border-collapse: collapse;
+}
+
+.listing-table td {
+  padding: 1em;
+  width: 0; 
+  white-space: nowrap; 
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+}
+
+.save-btn {
+  font-family: "Rubik", sans-serif !important;
+  background-color: rgb(231, 231, 143) !important;
+  color: rgb(84, 87, 37) !important;
+}
+
+.support-btn {
+  font-family: "Rubik", sans-serif !important;
+  background-color: rgb(143, 231, 187) !important;
+  color: rgb(84, 87, 37) !important;
+}
+
+.search-box {
+  margin-left:auto;
+  margin-right:auto;
+  padding: 1em;
+  width: 800px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.search {
+  width: 100%;
+  padding: 1em;
+  font-family: "Rubik", sans-serif !important;
+  outline: none;
+  border:none;
+  border-bottom: 1px solid rgb(171, 171, 227);
+  background-color: rgb(250, 250, 250);
+}
+
+.btn-right {
+    background-color: rgb(80, 80, 172) !important;
+    color: white !important;
+    float: right;
+    font-family: "Rubik", sans-serif !important;
+    margin-top:25px;
+    margin-right: 25px;
+}

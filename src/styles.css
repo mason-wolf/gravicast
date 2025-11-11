@@ -1,1 +1,54 @@
-/* You can add global styles to this file, and also import other style files */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body { height: 100%; }
+
+body { 
+  margin: 0;
+  font-family: "Rubik", sans-serif;
+  font-weight: 100;
+  color: white;
+}
+
+.nav {
+  width: 100vw !important;
+  max-width: none !important;
+  margin-left: calc(-50vw + 50%) !important;
+  padding: 1em !important;
+  border-radius: 0 !important;
+  background-color: rgb(33, 33, 80) !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+
+}
+    .nav .logo {
+      font-weight: 500;
+      font-size: 1.2rem;
+    }
+
+    .nav .controls {
+      display: flex;
+      gap: 0.8rem;               
+    }
+
+    .nav .controls button {
+      padding: 0.5rem 1rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: white;
+      background: transparent;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    a {
+      color: rgb(55, 55, 157) !important;
+    }

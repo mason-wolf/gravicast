@@ -74,3 +74,27 @@ mat-tab-group .mat-mdc-tab-body-content::-webkit-scrollbar {
     margin-top:25px;
     margin-right: 25px;
 }
+
+.location {
+  padding: 1em;
+}
+
+.mat-mdc-dialog-title {
+  font-family: "Rubik", sans-serif !important;
+}
+
+.mat-mdc-dialog-content {
+  font-family: "Rubik", sans-serif !important;
+}
+
+.mat-mdc-dialog-actions button {
+  font-family: "Rubik", sans-serif !important;
+}
+
+.mat-mdc-checkbox .mdc-form-field {
+  font-family: "Rubik", sans-serif !important;
+}
+
+.mat-mdc-checkbox .mdc-label {
+  font-family: "Rubik", sans-serif !important;
+}

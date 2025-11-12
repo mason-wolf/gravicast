@@ -7,11 +7,15 @@
 
 html, body { height: 100%; }
 
+.logo {
+  color: white;
+}
+
 body { 
   margin: 0;
   font-family: "Rubik", sans-serif;
   font-weight: 100;
-  color: white;
+  color: black;
 }
 
 .nav {
@@ -52,3 +56,26 @@ body {
     a {
       color: rgb(55, 55, 157) !important;
     }
+
+    .btn-left {
+    background-color: rgb(80, 80, 172) !important;
+    color: white !important;
+    float: left;
+    font-family: "Rubik", sans-serif !important;
+    }
+
+    .btn-right {
+    background-color: rgb(80, 80, 172) !important;
+    color: white !important;
+    float: right;
+    font-family: "Rubik", sans-serif !important;
+    margin-top: 25px;
+  }
+
+      .btn-right-green {
+    background-color: rgb(68, 151, 89) !important;
+    color: white !important;
+    float: right;
+    font-family: "Rubik", sans-serif !important;
+    margin-top: 25px;
+  }

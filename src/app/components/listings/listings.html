@@ -1,4 +1,5 @@
-<button mat-raised-button class="btn-right">Create Listing</button>
+<div class="location"><a href="#" (click)="openDialog(); $event.preventDefault()">Biloxi, MS</a></div>
+<button mat-raised-button class="btn-right" (click)="createListing()">Create Listing</button>
 <div class="search-box">
   <input class="search" placeholder="Search.."><br><br>
   <a href="">Gravicasts (23,023)</a>&nbsp;&nbsp;
@@ -41,6 +42,16 @@
       </td>
       <td><button class="support-btn" mat-raised-button>Support</button></td>
     </table>
+  @for (listing of listings; track listing.Id) {
+    <table class="listing-table">
+    <tr>
+      <td>{{ listing.Title }}</td>
+      <td>{{ listing.Location }}</td>
+      <td>Ends on {{ listing.EndDate | date:'mediumDate' }}</td>
+      <td><button class="save-btn" mat-raised-button>Save</button></td>
+    </tr>
+    </table>
+  }
   </mat-tab>
   <mat-tab label="My World"></mat-tab>
 </mat-tab-group>

@@ -1,0 +1,48 @@
+<div class="container">
+  <button mat-raised-button class="btn-left" (click)="goBack()">Back</button><br><br><br>
+  <h1>Create Listing</h1>
+  <mat-form-field appearance="outline">
+    <mat-label>Listing Title</mat-label>
+    <input
+      matInput
+      placeholder="e.g. Free Ice Cream, Piano Lessons"
+      [(ngModel)]="listing.Title"
+    />
+  </mat-form-field>
+    <mat-form-field appearance="outline">
+    <mat-label>Location</mat-label>
+    <input
+      matInput
+      placeholder="e.g. Atlanta, GA"
+      [(ngModel)]="listing.Location"
+    />
+  </mat-form-field>
+    <mat-form-field appearance="outline">
+    <mat-label>Sponsor</mat-label>
+    <input
+      matInput
+      placeholder="e.g. Your Awesome Organization"
+      [(ngModel)]="listing.Sponsor"
+    />
+  </mat-form-field>
+<mat-form-field appearance="outline" class="full-width-textarea">
+  <mat-label>Description</mat-label>
+  <textarea
+   [(ngModel)]="listing.Description"
+    matInput
+    placeholder="Enter detailed description of the event..."
+    rows="8"
+  ></textarea>
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Enter a date range</mat-label>
+  <mat-date-range-input [formGroup]="listingForm" [rangePicker]="picker">
+    <input matStartDate formControlName="start" placeholder="Start date">
+    <input matEndDate formControlName="end" placeholder="End date">
+  </mat-date-range-input>
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-date-range-picker #picker></mat-date-range-picker>
+</mat-form-field>
+<div class="image-upload">Click to upload image..</div>
+  <button mat-raised-button class="btn-right-green" (click)="createListing()">Create</button>
+</div>

@@ -1,0 +1,15 @@
+<div class="location-dialog">
+<h2 mat-dialog-title>Broaden Horizons</h2>
+<mat-dialog-content>
+<section [formGroup]="location" style="text-align: center;">
+  <p><mat-checkbox formControlName="pepperoni">0-20 Miles</mat-checkbox></p>
+  <p><mat-checkbox formControlName="extracheese">0-50 Miles</mat-checkbox></p>
+  <p><mat-checkbox formControlName="mushroom">0-100 Miles</mat-checkbox></p>
+  <p><mat-checkbox formControlName="mushroom">Country Wide</mat-checkbox></p>
+  <p><mat-checkbox formControlName="mushroom">World Wide</mat-checkbox></p>
+</section>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button matButton mat-dialog-close class="btn-right" style="margin-top:-10px;">Apply</button>
+</mat-dialog-actions>
+</div>

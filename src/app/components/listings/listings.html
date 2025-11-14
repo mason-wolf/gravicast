@@ -1,5 +1,9 @@
 <div class="location"><a href="#" (click)="openDialog(); $event.preventDefault()">Biloxi, MS</a></div>
-<button mat-raised-button class="btn-right" (click)="createListing()">Create Listing</button>
+<button matButton [matMenuTriggerFor]="menu" class="btn-right">Create..</button><br><br>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="createListing()">Create Listing</button>
+  <button mat-menu-item (click)="createGravicast()">Create Gravicast</button>
+</mat-menu>
 <div class="search-box">
   <input class="search" placeholder="Search.."><br><br>
   <a href="">Gravicasts (23,023)</a>&nbsp;&nbsp;
@@ -47,7 +51,7 @@
     <tr>
       <td>{{ listing.Title }}</td>
       <td>{{ listing.Location }}</td>
-      <td>Ends on {{ listing.EndDate | date:'mediumDate' }}</td>
+      <!-- <td>Ends on {{ listing.EndDate | date:'mediumDate' }}</td> -->
       <td><button class="save-btn" mat-raised-button>Save</button></td>
     </tr>
     </table>

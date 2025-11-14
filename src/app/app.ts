@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
@@ -10,4 +10,10 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class App {
   protected readonly title = signal('gravicast');
+
+  constructor(private router: Router) {}
+
+  goHome() {
+    this.router.navigate(['/'])
+  }
 }

@@ -14,13 +14,14 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { JsonPipe } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import {MatMenuModule} from '@angular/material/menu';
 
 @Component({
   selector: 'app-listings',
   standalone: true,
   imports: [CommonModule, MatButtonModule, 
     MatCardModule, MatChipsModule, MatTabsModule,
-    MatFormFieldModule, MatInputModule, FormsModule, MatDialogModule],
+    MatFormFieldModule, MatInputModule, FormsModule, MatDialogModule, MatMenuModule],
   templateUrl: './listings.html',
   styleUrls: ['./listings.css'],
   encapsulation: ViewEncapsulation.None,
@@ -42,6 +43,9 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
       this.router.navigate(['/create-listing']);
     }
 
+    createGravicast() {
+      this.router.navigate(['/create-gravicast']);
+    }
     openDialog() {
       const dialogRef = this.dialog.open(LocationDialog, {
         width: '350px',

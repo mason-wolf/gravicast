@@ -2,28 +2,36 @@
   <button mat-raised-button class="btn-left" (click)="goBack()">Back</button><br><br><br>
   <h1>Create Listing</h1>
   <mat-form-field appearance="outline">
-    <mat-label>Listing Title</mat-label>
+    <mat-label>Title</mat-label>
     <input
       matInput
       placeholder="e.g. Free Ice Cream, Piano Lessons"
       [(ngModel)]="listing.Title"
     />
   </mat-form-field>
-    <mat-form-field appearance="outline">
-    <mat-label>Location</mat-label>
-    <input
-      matInput
-      placeholder="e.g. Atlanta, GA"
-      [(ngModel)]="listing.Location"
-    />
+  <mat-form-field appearance="outline">
+      <mat-label>Location</mat-label>
+      <input
+        matInput
+        placeholder="e.g. Atlanta, GA"
+        [(ngModel)]="listing.Location"
+      />
   </mat-form-field>
     <mat-form-field appearance="outline">
-    <mat-label>Sponsor</mat-label>
-    <input
-      matInput
-      placeholder="e.g. Your Awesome Organization"
-      [(ngModel)]="listing.Sponsor"
-    />
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        placeholder="joe@awesome.com"
+        [(ngModel)]="listing.Email"
+      />
+  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Phone Number</mat-label>
+      <input
+        matInput
+        placeholder="###-###-####"
+        [(ngModel)]="listing.PhoneNumber"
+      />
   </mat-form-field>
 <mat-form-field appearance="outline" class="full-width-textarea">
   <mat-label>Description</mat-label>
@@ -34,7 +42,35 @@
     rows="8"
   ></textarea>
 </mat-form-field>
-<mat-form-field>
+  <mat-form-field appearance="outline">
+      <mat-label>Message to Display When Supported</mat-label>
+      <input
+        matInput
+        placeholder="Thanks for your support!"
+        [(ngModel)]="listing.Location"
+      />
+  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Custom URL</mat-label>
+      <input
+        matInput
+        placeholder="https://yourawesomesite.com"
+        [(ngModel)]="listing.CustomUrl1"
+      />
+  </mat-form-field>
+      <mat-form-field appearance="outline">
+      <mat-label>Custom URL</mat-label>
+      <input
+        matInput
+        placeholder="https://yourawesomesite.com"
+        [(ngModel)]="listing.CustomUrl2"
+      />
+  </mat-form-field>
+  <mat-radio-group aria-label="Visibility">
+  <mat-radio-button value="1">Private</mat-radio-button>
+  <mat-radio-button value="2">Public</mat-radio-button>
+</mat-radio-group>
+<!-- <mat-form-field>
   <mat-label>Enter a date range</mat-label>
   <mat-date-range-input [formGroup]="listingForm" [rangePicker]="picker">
     <input matStartDate formControlName="start" placeholder="Start date">
@@ -42,7 +78,7 @@
   </mat-date-range-input>
   <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-date-range-picker #picker></mat-date-range-picker>
-</mat-form-field>
+</mat-form-field> -->
 <div class="image-upload">Click to upload image..</div>
   <button mat-raised-button class="btn-right-green" (click)="createListing()">Create</button>
 </div>

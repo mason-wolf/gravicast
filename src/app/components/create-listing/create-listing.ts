@@ -10,14 +10,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Listing } from '../../models/listing';
 import { ListingService } from '../../services/listing-service';
+import {MatRadioModule} from '@angular/material/radio';
 
 @Component({
   selector: 'app-create-listing',
   providers: [provideNativeDateAdapter()],
   imports: [CommonModule, MatButtonModule, 
-  MatFormFieldModule, MatInputModule, FormsModule, MatDatepickerModule, MatNativeDateModule, ReactiveFormsModule],
+  MatFormFieldModule, MatInputModule, MatRadioModule, FormsModule, MatDatepickerModule, MatNativeDateModule, ReactiveFormsModule],
   templateUrl: './create-listing.html',
-  styleUrl: './create-listing.css',
+  styleUrl: './create-listing.css'
 })
 
 export class CreateListing {
@@ -25,12 +26,14 @@ export class CreateListing {
   listing: Listing = {
     Title: '',
     Location: '',
-    Sponsor: '',
+    PhoneNumber: '',
+    Email: '',
+    SupportMessage: '',
     Description: '',
     Id: 0,
-    StartDate: '',
-    EndDate: '',
-    ImageUrl: ''
+    ImageUrl: '',
+    CustomUrl1: '',
+    CustomUrl2: ''
   };
 
   
@@ -46,10 +49,10 @@ export class CreateListing {
   }
 
   createListing() {
-    const startDate = this.listingForm.get('start')?.value;
-    const endDate = this.listingForm.get('end')?.value;
-    this.listing.StartDate = startDate;
-    this.listing.EndDate = endDate;
+    // const startDate = this.listingForm.get('start')?.value;
+    // const endDate = this.listingForm.get('end')?.value;
+    // this.listing.StartDate = startDate;
+    // this.listing.EndDate = endDate;
     this.listingService.createListing(this.listing);
     this.goBack();
   }

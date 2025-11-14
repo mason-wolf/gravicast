@@ -16,4 +16,8 @@ export class App {
   goHome() {
     this.router.navigate(['/'])
   }
+
+  manageProfile() {
+    this.router.navigate(['/profile'])
+  }
 }

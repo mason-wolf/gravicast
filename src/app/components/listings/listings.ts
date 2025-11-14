@@ -15,13 +15,19 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { JsonPipe } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-listings',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, 
-    MatCardModule, MatChipsModule, MatTabsModule,
-    MatFormFieldModule, MatInputModule, FormsModule, MatDialogModule, MatMenuModule],
+  imports: [
+            CommonModule, MatButtonModule, 
+            MatCardModule, MatChipsModule, 
+            MatTabsModule, MatFormFieldModule, 
+            MatInputModule, FormsModule, 
+            MatDialogModule, MatMenuModule,
+            MatIconModule
+          ],
   templateUrl: './listings.html',
   styleUrls: ['./listings.css'],
   encapsulation: ViewEncapsulation.None,
@@ -34,7 +40,10 @@ import {MatMenuModule} from '@angular/material/menu';
 
     listings: Listing[] = [];
 
-    constructor(private router: Router, private listingService: ListingService) {
+    constructor(
+      private router: Router, 
+      private listingService: ListingService
+    ) {
         this.listings = listingService.getListings();
         console.log(this.listings);
     }

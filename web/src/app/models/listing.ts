@@ -12,4 +12,5 @@ export interface Listing {
     ImageUrl: string;
     CustomUrl1: string;
     CustomUrl2: string;
+    Owner: number;
 }

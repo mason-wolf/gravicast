@@ -6,6 +6,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class ListingService {
+    private apiUrl = 'http://localhost:5076/api/listings';
+
     listings: Listing[] = [];
 
     constructor(private http: HttpClient) {}
@@ -14,7 +16,7 @@ export class ListingService {
      * @param listing 
      */
     createListing(listing : Listing) {
-      this.listings.push(listing);
+      return this.http.post<Listing>(`${this.apiUrl}`, listing);
     }
 
     /**

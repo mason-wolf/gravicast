@@ -33,7 +33,8 @@ export class CreateListing {
     Id: 0,
     ImageUrl: '',
     CustomUrl1: '',
-    CustomUrl2: ''
+    CustomUrl2: '',
+    Owner: 0
   };
 
   
@@ -53,7 +54,9 @@ export class CreateListing {
     // const endDate = this.listingForm.get('end')?.value;
     // this.listing.StartDate = startDate;
     // this.listing.EndDate = endDate;
-    this.listingService.createListing(this.listing);
+    this.listingService.createListing(this.listing).subscribe(res => {
+      console.log(res);
+    })
     this.goBack();
   }
 

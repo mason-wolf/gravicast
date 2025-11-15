@@ -21,10 +21,5 @@ public class AppDbContext : DbContext
                 Password = "$2a$11$KHEZYESWEjkfptrbRD0wquOmePaUh2e4L1nQn4/KOUyFSI7/bDNYy"
             }
         );
-
-        modelBuilder.Entity<Listing>().HasData(
-            new { Id = 1, Title = "Downtown Loft", Price = 1800m },
-            new { Id = 2, Title = "Suburban Home", Price = 3200m }
-        );
     }
 }

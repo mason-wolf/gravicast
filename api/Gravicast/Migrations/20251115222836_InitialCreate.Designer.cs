@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gravicast.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251115182937_InitialCreate")]
+    [Migration("20251115222836_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -25,30 +25,48 @@ namespace Gravicast.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal>("Price")
+                    b.Property<string>("CustomUrl1")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CustomUrl2")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Owner")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SupportMessage")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Visibility")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.ToTable("Listings");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Price = 1800m,
-                            Title = "Downtown Loft"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Price = 3200m,
-                            Title = "Suburban Home"
-                        });
                 });
 
             modelBuilder.Entity("User", b =>
@@ -58,31 +76,24 @@ namespace Gravicast.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Gender")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Role")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

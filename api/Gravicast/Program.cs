@@ -13,6 +13,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IListingRepository, ListingRepository>();
+builder.Services.AddScoped<IListingService, ListingService>();
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>

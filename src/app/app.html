@@ -1,8 +1,8 @@
 <nav class="nav">
-    <div class="logo">Gravicast<span style="font-size: 10px;">. v1.0</span></div>
+    <span (click)="goHome()" style="cursor: pointer;"><div class="logo">Gravicast<span style="font-size: 10px;">. v1.0</span></div></span>
     <div class="controls">
-      <button mat-button>Login</button>
-      <button mat-button>Register</button>
+      <button mat-button (click)="login()">Login</button>
+      <button mat-button (click)="register()">Register</button>
       <span (click)="manageProfile()"><div class="mat-icon account-icon">account_circle</div></span>
     </div>
 </nav>

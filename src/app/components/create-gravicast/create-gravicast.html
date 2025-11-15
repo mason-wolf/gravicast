@@ -6,6 +6,7 @@
     <input
       matInput
       placeholder="e.g. Free Ice Cream, Piano Lessons"
+      [(ngModel)]="gravicast.Title"
     />
   </mat-form-field>
   <mat-form-field appearance="outline" class="full-width-textarea">
@@ -14,6 +15,7 @@
     matInput
     placeholder="Enter detailed description of the event..."
     rows="8"
+    [(ngModel)]="gravicast.Description"
   ></textarea>
 </mat-form-field>
   <mat-form-field appearance="outline">
@@ -21,6 +23,7 @@
     <input
       matInput
       placeholder="Thank you for your support!"
+      [(ngModel)]="gravicast.SavedMessage"
     />
   </mat-form-field>
     <mat-form-field appearance="outline">
@@ -28,6 +31,15 @@
     <input
       matInput
       placeholder="123 Easy Street"
+      [(ngModel)]="gravicast.At"
+    />
+  </mat-form-field>
+      <mat-form-field appearance="outline">
+    <mat-label>By</mat-label>
+    <input
+      matInput
+      placeholder="Your awesome organization."
+      [(ngModel)]="gravicast.By"
     />
   </mat-form-field>
       <mat-form-field appearance="outline">
@@ -35,6 +47,7 @@
     <input
       matInput
       placeholder="9:00 A.M"
+      [(ngModel)]="gravicast.StartTime"
     />
   </mat-form-field>
       <mat-form-field appearance="outline">
@@ -42,9 +55,10 @@
     <input
       matInput
       placeholder="12:00 PM"
+      [(ngModel)]="gravicast.EndTime"
     />
   </mat-form-field>
   <div class="image-upload">Click to upload image..</div>
-  <button mat-raised-button class="btn-right-green">Create</button>
+  <button mat-raised-button class="btn-right-green" (click)="createGravicast()">Create</button>
 </div>
   

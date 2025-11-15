@@ -14,10 +14,18 @@ export class App {
   constructor(private router: Router) {}
 
   goHome() {
-    this.router.navigate(['/'])
+    this.router.navigate(['/']);
   }
 
   manageProfile() {
-    this.router.navigate(['/profile'])
+    this.router.navigate(['/profile']);
+  }
+
+  login() {
+    this.router.navigate(['/login']);
+  }
+
+  register() {
+    this.router.navigate(['/register']);
   }
 }

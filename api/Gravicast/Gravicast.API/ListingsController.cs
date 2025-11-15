@@ -35,7 +35,15 @@ public class ListingsController : ControllerBase
     [Authorize]
     public async Task<IActionResult> CreateListing([FromBody] Listing listing)
     {
-        var email = User.FindFirstValue(ClaimTypes.Name);
+        var email = string.Empty;
+        try
+        {
+            email = User.FindFirstValue(ClaimTypes.Name);
+        }
+        catch(ArgumentNullException)
+        {
+            return BadRequest("Authentication failure.");
+        }
 
         if (email == null)
             return Unauthorized();

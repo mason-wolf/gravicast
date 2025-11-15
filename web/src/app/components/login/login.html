@@ -5,7 +5,7 @@
     <input
       matInput
       placeholder="joe@gmail.com"
-      [(ngModel)]="creds.username"
+      [(ngModel)]="user.Email"
     />
   </mat-form-field>
   <mat-form-field appearance="outline">
@@ -14,7 +14,7 @@
       matInput
       placeholder="Password"
       type="password"
-      [(ngModel)]="creds.password"
+      [(ngModel)]="user.Password"
     />
   </mat-form-field>
     <button mat-raised-button class="btn-right-green" (click)="onSubmit()">Login</button>

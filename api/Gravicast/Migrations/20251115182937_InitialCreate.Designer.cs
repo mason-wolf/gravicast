@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gravicast.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251115161716_InitialCreate")]
+    [Migration("20251115182937_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -57,15 +57,31 @@ namespace Gravicast.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("PasswordHash")
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -77,9 +93,13 @@ namespace Gravicast.Migrations
                         new
                         {
                             Id = 1,
-                            PasswordHash = "$2a$11$KHEZYESWEjkfptrbRD0wquOmePaUh2e4L1nQn4/KOUyFSI7/bDNYy",
-                            Role = "Admin",
-                            Username = "admin"
+                            Email = "admin",
+                            FirstName = "",
+                            Gender = "",
+                            LastName = "",
+                            Password = "$2a$11$KHEZYESWEjkfptrbRD0wquOmePaUh2e4L1nQn4/KOUyFSI7/bDNYy",
+                            Phone = "",
+                            Role = "Admin"
                         });
                 });
 #pragma warning restore 612, 618

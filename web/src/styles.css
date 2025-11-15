@@ -134,3 +134,7 @@ body {
   margin-top: 10px;
   cursor: pointer;
 }
+
+.mdc-label {
+  font-family: "Rubik", sans-serif !important;
+}

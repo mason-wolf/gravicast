@@ -1,1 +1,49 @@
-<p>resgister works!</p>
+<div class="container">
+<h1>Create Account</h1>
+<mat-form-field appearance="outline">
+    <mat-label>First Name</mat-label>
+    <input
+      matInput
+      placeholder="Joe"
+      [(ngModel)]="user.FirstName"
+    />
+</mat-form-field>
+<mat-form-field appearance="outline">
+    <mat-label>Last Name</mat-label>
+    <input
+      matInput
+      placeholder="Smith"
+      [(ngModel)]="user.LastName"
+    />
+</mat-form-field>
+<mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      placeholder="joe@gmail.com"
+      [(ngModel)]="user.Email"
+    />
+</mat-form-field>
+<mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input
+      matInput
+      type="password"
+      placeholder="Password"
+      [(ngModel)]="user.Password"
+    />
+</mat-form-field>
+<mat-form-field appearance="outline">
+    <mat-label>Phone Number</mat-label>
+    <input
+      matInput
+      placeholder="(XXX)-XXX-XXXX"
+      [(ngModel)]="user.Phone"
+    />
+</mat-form-field>
+<mat-radio-group [(ngModel)]="user.Gender">
+  <mat-radio-button value="male">Male</mat-radio-button>
+  <mat-radio-button value="female">Female</mat-radio-button>
+</mat-radio-group>
+    <button mat-raised-button class="btn-right-green" (click)="register()">Register</button>
+</div>

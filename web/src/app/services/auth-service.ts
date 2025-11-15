@@ -1,11 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, tap } from 'rxjs';
-
-export interface LoginCredentials {
-  username: string;
-  password: string;
-}
+import { User } from '../models/user';
 
 export interface AuthResponse {
   token: string;
@@ -19,14 +15,17 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  login(credentials: LoginCredentials) {
-    console.log(credentials);
-    return this.http.post<AuthResponse>(`${this.apiUrl}/login`, credentials).pipe(
+  login(user: User) {
+    return this.http.post<AuthResponse>(`${this.apiUrl}/login`, user).pipe(
       tap(res => {
         localStorage.setItem('jwt', res.token);
         this.tokenSubject.next(res.token);
       })
     );
+  }
+
+  register(user: User) {
+    return this.http.post<any>(`${this.apiUrl}/register`, user);
   }
 
   logout() {

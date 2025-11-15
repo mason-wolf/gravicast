@@ -32,9 +32,13 @@ namespace Gravicast.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Username = table.Column<string>(type: "TEXT", nullable: false),
-                    PasswordHash = table.Column<string>(type: "TEXT", nullable: false),
-                    Role = table.Column<string>(type: "TEXT", nullable: false)
+                    FirstName = table.Column<string>(type: "TEXT", nullable: false),
+                    LastName = table.Column<string>(type: "TEXT", nullable: false),
+                    Email = table.Column<string>(type: "TEXT", nullable: false),
+                    Phone = table.Column<string>(type: "TEXT", nullable: false),
+                    Password = table.Column<string>(type: "TEXT", nullable: false),
+                    Role = table.Column<string>(type: "TEXT", nullable: false),
+                    Gender = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -52,8 +56,8 @@ namespace Gravicast.Migrations
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "PasswordHash", "Role", "Username" },
-                values: new object[] { 1, "$2a$11$KHEZYESWEjkfptrbRD0wquOmePaUh2e4L1nQn4/KOUyFSI7/bDNYy", "Admin", "admin" });
+                columns: new[] { "Id", "Email", "FirstName", "Gender", "LastName", "Password", "Phone", "Role" },
+                values: new object[] { 1, "admin", "", "", "", "$2a$11$KHEZYESWEjkfptrbRD0wquOmePaUh2e4L1nQn4/KOUyFSI7/bDNYy", "", "Admin" });
         }
 
         /// <inheritdoc />

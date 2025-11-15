@@ -16,9 +16,9 @@ public class AppDbContext : DbContext
             new User
             {
                 Id = 1,
-                Username = "admin",
+                Email = "admin",
                 Role = "Admin",
-                PasswordHash = "$2a$11$KHEZYESWEjkfptrbRD0wquOmePaUh2e4L1nQn4/KOUyFSI7/bDNYy"
+                Password = "$2a$11$KHEZYESWEjkfptrbRD0wquOmePaUh2e4L1nQn4/KOUyFSI7/bDNYy"
             }
         );
 

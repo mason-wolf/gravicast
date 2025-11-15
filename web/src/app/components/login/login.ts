@@ -3,8 +3,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { AuthService, LoginCredentials } from '../../services/auth-service';
+import { AuthService } from '../../services/auth-service';
 import { Router } from '@angular/router';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-login',
@@ -17,11 +18,22 @@ import { Router } from '@angular/router';
   styleUrl: './login.css',
 })
 export class Login {
-  creds: LoginCredentials = { username: '', password: '' };
+
+  user: User = {
+    Id: 0,
+    FirstName: '',
+    LastName: '',
+    Email: '',
+    Phone: '',
+    Password: '',
+    Gender: '',
+    Role: ''
+  };
+  
   constructor(private auth: AuthService, private router: Router) {}
 
   onSubmit() {
-    this.auth.login(this.creds).subscribe({
+    this.auth.login(this.user).subscribe({
       next: () => console.log("Login success!"),
       error: (err) => console.error("Login failed.")
     });

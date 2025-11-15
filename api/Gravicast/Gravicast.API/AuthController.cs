@@ -56,6 +56,7 @@ public class AuthController : ControllerBase
         }
     }
     
+
     private string GenerateJwtToken(User user)
     {
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]!));

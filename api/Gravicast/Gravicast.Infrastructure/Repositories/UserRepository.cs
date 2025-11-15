@@ -22,10 +22,24 @@ namespace Gravicast.Infrastructure.Services
             await _context.SaveChangesAsync();
             return "User created.";
         }
+    public async Task<UserDto?> GetUserAsync(string email)
+    {
+        var user = await _context.Users
+            .AsNoTracking()
+            .FirstOrDefaultAsync(u => u.Email == email);
 
-        public async Task<User?> GetByEmailAsync(string email)
+        if (user == null)
         {
-            return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+            return null;
         }
+
+        UserDto userDto = new UserDto();
+        userDto.FirstName = user.FirstName;
+        userDto.LastName = user.LastName;
+        userDto.Id = user.Id;
+        userDto.Phone = user.Phone;
+        return userDto;
     }
+
+  }
 }

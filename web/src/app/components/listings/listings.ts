@@ -16,6 +16,7 @@ import { JsonPipe } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
+import { AuthService } from '../../services/auth-service';
 
 @Component({
   selector: 'app-listings',
@@ -37,7 +38,6 @@ import {MatIconModule} from '@angular/material/icon';
   export class Listings {
     
     readonly dialog = inject(MatDialog);
-
     listings: Listing[] = [];
 
     constructor(
@@ -46,7 +46,6 @@ import {MatIconModule} from '@angular/material/icon';
     ) {
         this.listings = listingService.getListings();
         listingService.getListingsTest();
-        console.log(this.listings);
     }
 
     createListing() {

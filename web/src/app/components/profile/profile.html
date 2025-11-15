@@ -8,14 +8,16 @@
       <input
         matInput
         placeholder="Joe Smith"
+        [(ngModel)]="user.FirstName"
       />
 
   </mat-form-field>
       <mat-form-field appearance="outline">
-      <mat-label>Email</mat-label>
+      <mat-label>Last Name</mat-label>
       <input
         matInput
         placeholder="joe@awesome.com"
+        [(ngModel)]="user.LastName"
       />
   </mat-form-field>
   
@@ -24,8 +26,9 @@
       <input
         matInput
         placeholder="(XXX)-XXX-XXXX"
+        [(ngModel)]="user.Phone"
       />
     </mat-form-field>
 
-      <button mat-raised-button class="btn-right-green">Save</button>
+      <button mat-raised-button class="btn-right-green" (click)="updateProfile()">Save</button>
 </div>

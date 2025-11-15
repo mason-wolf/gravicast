@@ -5,7 +5,10 @@
   box-sizing: border-box;
 }
 
-html, body { height: 100%; }
+html, body { 
+  height: 100%; 
+  overflow-x: hidden;
+}
 
 .logo {
   color: white;
@@ -131,10 +134,14 @@ body {
 
 .account-icon {
   color: white;
-  margin-top: 10px;
+  margin-top: 15px;
   cursor: pointer;
 }
 
 .mdc-label {
   font-family: "Rubik", sans-serif !important;
+}
+
+.nav-control {
+  margin-top:5px;
 }

@@ -1,8 +1,17 @@
 <nav class="nav">
     <span (click)="goHome()" style="cursor: pointer;"><div class="logo">Gravicast<span style="font-size: 10px;">. v1.0</span></div></span>
     <div class="controls">
-      <button mat-button (click)="login()">Login</button>
-      <button mat-button (click)="register()">Register</button>
+      @if (!_isLoggedIn) {
+      <button mat-button (click)="login()" class="nav-control">Login</button>
+      <button mat-button (click)="register()" class="nav-control">Register</button>
+      }
+      @else {
+        <div class="username">
+          Mason&nbsp;&nbsp;&nbsp;
+          <a href="javascript:void(0)" (click)="logout()">Logout</a>
+        </div>
+
+      }
       <span (click)="manageProfile()"><div class="mat-icon account-icon">account_circle</div></span>
     </div>
 </nav>

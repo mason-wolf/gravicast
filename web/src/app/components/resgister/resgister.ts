@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
 import { User } from '../../models/user';
 import { AuthService } from '../../services/auth-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-resgister',
@@ -30,11 +31,13 @@ export class Resgister {
       Role: ''
     };
 
-    constructor(private authService: AuthService) {}
+    constructor(private authService: AuthService, private router: Router) {}
 
     register() {
       this.authService.register(this.user).subscribe(res => {
-        console.log(res);
+      this.router.navigate(['/']).then(() => {
+        window.location.reload(); 
+      });
       })
     }
 }

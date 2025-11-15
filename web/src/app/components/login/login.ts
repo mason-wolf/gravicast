@@ -32,10 +32,15 @@ export class Login {
   
   constructor(private auth: AuthService, private router: Router) {}
 
-  onSubmit() {
-    this.auth.login(this.user).subscribe({
-      next: () => console.log("Login success!"),
-      error: (err) => console.error("Login failed.")
-    });
-  }
+onSubmit() {
+  this.auth.login(this.user).subscribe({
+    next: () => {
+      this.router.navigate(['/']).then(() => {
+        window.location.reload(); 
+      });
+    },
+    error: (err) => console.error("Login failed.")
+  });
+}
+
 }

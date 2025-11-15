@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Gravicast")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f6c02c5550b91698299aea7d6811cdfe9a021f63")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c26c8a07d028278bb37bac9393842ab790e6d52a")]
 [assembly: System.Reflection.AssemblyProductAttribute("Gravicast")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Gravicast")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,7 @@
+rm -f app.db
+rm -rf Migrations/
+rm -rf bin/ obj/
+
+dotnet build
+dotnet ef migrations add InitialCreate
+dotnet ef database update

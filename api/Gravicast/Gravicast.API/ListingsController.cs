@@ -1,19 +1,28 @@
+
+using Gravicast.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class ListingsController : ControllerBase
 {
-    [HttpGet]
-    [Authorize] 
-    public IActionResult GetListings()
+    private readonly AppDbContext _db;
+
+    public ListingsController(AppDbContext db)
     {
-        var listings = new[]
-        {
-            new { Id = 1, Title = "Downtown Apartment", Price = 1200 },
-            new { Id = 2, Title = "Suburban House", Price = 2500 }
-        };
+        _db = db;
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetListings()
+    {
+        var listings = await _db.Listings
+            .Select(l => new { l.Id, l.Title, l.Price })
+            .ToListAsync();
 
         return Ok(listings);
     }

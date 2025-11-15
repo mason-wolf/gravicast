@@ -20,6 +20,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(credentials: LoginCredentials) {
+    console.log(credentials);
     return this.http.post<AuthResponse>(`${this.apiUrl}/login`, credentials).pipe(
       tap(res => {
         localStorage.setItem('jwt', res.token);

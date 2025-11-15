@@ -1,4 +1,7 @@
+
+using Gravicast.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -8,36 +11,40 @@ using System.Text;
 [Route("api/[controller]")]
 public class AuthController : ControllerBase
 {
+    private readonly AppDbContext _db;
     private readonly IConfiguration _config;
 
-    public AuthController(IConfiguration config)
+    public AuthController(AppDbContext db, IConfiguration config)
     {
+        _db = db;
         _config = config;
     }
 
     [HttpPost("login")]
-    public IActionResult Login([FromBody] LoginModel model)
+    public async Task<IActionResult> Login([FromBody] LoginModel model)
     {
-        // TODO: Replace with real user validation (e.g., from DB)
-        if (model.Username == "admin" && model.Password == "password")
+        var user = await _db.Users
+            .FirstOrDefaultAsync(u => u.Username == model.Username);
+
+        if (user == null || !BCrypt.Net.BCrypt.Verify(model.Password, user.PasswordHash))
         {
-            var token = GenerateJwtToken(model.Username);
-            return Ok(new { token });
+            return Unauthorized(new { message = "Invalid credentials" });
         }
 
-        return Unauthorized(new { message = "Invalid credentials" });
+        var token = GenerateJwtToken(user);
+        return Ok(new { token });
     }
 
-    private string GenerateJwtToken(string username)
+    private string GenerateJwtToken(User user)
     {
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]!));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var claims = new[]
         {
-            new Claim(ClaimTypes.Name, username),
-            new Claim(ClaimTypes.Role, "User"),
-            new Claim(JwtRegisteredClaimNames.Sub, username),
+            new Claim(ClaimTypes.Name, user.Username),
+            new Claim(ClaimTypes.Role, user.Role),
+            new Claim(JwtRegisteredClaimNames.Sub, user.Username),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
 

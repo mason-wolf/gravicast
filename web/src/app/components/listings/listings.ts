@@ -45,7 +45,6 @@ import { AuthService } from '../../services/auth-service';
       private listingService: ListingService
     ) {
         this.listings = listingService.getListings();
-        listingService.getListingsTest();
     }
 
     createListing() {

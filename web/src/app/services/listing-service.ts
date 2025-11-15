@@ -24,10 +24,4 @@ export class ListingService {
     getListings() : Listing[] {
       return this.listings;
     }
-
-    getListingsTest() {
-      this.http.get('http://localhost:5076/api/listings').subscribe(res => {
-        console.log(res);
-      });
-    }
   }

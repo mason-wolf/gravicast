@@ -145,3 +145,7 @@ body {
 .nav-control {
   margin-top:5px;
 }
+
+.mat-mdc-snack-bar-label .mdc-snackbar__label {
+    font-family: "Rubik", sans-serif !important;
+}

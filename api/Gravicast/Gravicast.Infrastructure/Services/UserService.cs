@@ -7,8 +7,13 @@ public class UserService : IUserService
         _userRepo = userRepo;
     }
 
-    public Task<UserDto?> GetUserAsync(string email)
+    public async Task<UserDto?> GetUserAsync(string email)
     {
-        return _userRepo.GetUserAsync(email);
+        return await _userRepo.GetUserAsync(email);
+    }
+
+    public async Task<string> UpdateUserAsync(User user)
+    {
+        return await _userRepo.UpdateUserAsync(user);
     }
 }

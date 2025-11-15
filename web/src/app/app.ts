@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { AuthService } from './services/auth-service';
 import { CommonModule } from '@angular/common'; 
 import { UserService } from './services/user-service';
+import { UserDto } from './models/UserDto';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ export class App {
   protected readonly title = signal('gravicast');
 
   _isLoggedIn = false;
+  user: UserDto = new UserDto();
 
   constructor(
     private router: Router, 
@@ -22,9 +24,11 @@ export class App {
     private userService: UserService) {
 
     this._isLoggedIn = this.authService.isLoggedIn();
-    this.userService.getUser().subscribe(res => {
-      console.log(res);
-    });
+    if (this._isLoggedIn) {
+      this.userService.getUser().subscribe(res => {
+        this.user = res;
+      });
+    }
   }
 
   goHome() {

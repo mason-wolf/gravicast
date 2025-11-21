@@ -31,7 +31,7 @@ namespace Gravicast.Tests.Listings
         [Fact]
         public async Task ShouldNotCreateListing_OnInvalidEmail()
         {
-            var controller = new ListingsController(_db, _listingService, _userService);
+            var controller = new ListingsController( _listingService, _userService);
             var result = await controller.CreateListing(new Listing());
             Assert.IsAssignableFrom<BadRequestObjectResult>(result);
         }

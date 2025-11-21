@@ -1,4 +1,5 @@
 
+
 public class ListingService : IListingService
 {
     private IListingRepository _listingRepo;
@@ -6,8 +7,19 @@ public class ListingService : IListingService
     {
         _listingRepo = listingRepository;
     }
-  public Task<string> CreateListingAsync(Listing listing)
+
+  public async Task<string> CreateListingAsync(Listing listing)
     {
-        return _listingRepo.CreateListingAsync(listing);
+        return await _listingRepo.CreateListingAsync(listing);
+    }
+
+  public async Task<List<Listing>> GetListingsAsync(int page, int size)
+    {
+        return await _listingRepo.GetListingsAsync(page, size);
+    }
+
+  public async Task<List<Listing>> GetListingsByUserIdAsync(int userId)
+    {
+        return await _listingRepo.GetListingsByUserIdAsync(userId);
     }
 }

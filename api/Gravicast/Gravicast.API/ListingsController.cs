@@ -8,35 +8,52 @@ using Microsoft.EntityFrameworkCore;
 
 [ApiController]
 [Route("api/[controller]")]
-[Authorize]
 public class ListingsController : ControllerBase
 {
-    private readonly AppDbContext _db;
     private readonly IListingService _listingService;
     private readonly IUserService _userService;
-    public ListingsController(AppDbContext db, IListingService listingService, IUserService userService)
+    public ListingsController(IListingService listingService, IUserService userService)
     {
-        _db = db;
         _listingService = listingService;
         _userService = userService;
     }
 
+    /// <summary>
+    /// Gets listings.
+    /// </summary>
+    /// <returns></returns>
     [HttpGet]
     public async Task<IActionResult> GetListings()
     {
-        var listings = await _db.Listings
-            .Select(l => new { l.Id, l.Title })
-            .ToListAsync();
-
+        var listings = await _listingService.GetListingsAsync(1, 100);
         return Ok(listings);
     }
 
+    /// <summary>
+    /// Gets listings by user ID.
+    /// </summary>
+    /// <param name="userId"></param>
+    /// <returns></returns>
+    [HttpGet("user/{userId}")]
+    public async Task<IActionResult> GetListingsByUserId(int userId)
+    {
+        var listings = await _listingService.GetListingsByUserIdAsync(userId);
+        return Ok(listings);
+    }
+
+    /// <summary>
+    /// Create a listing.
+    /// </summary>
+    /// <param name="listing"></param>
+    /// <returns></returns>
     [HttpPost]
     [Authorize]
     public async Task<IActionResult> CreateListing([FromBody] Listing listing)
     {
-        var email = string.Empty;
-        try
+
+    string? email;
+
+    try
         {
             email = User.FindFirstValue(ClaimTypes.Name);
         }

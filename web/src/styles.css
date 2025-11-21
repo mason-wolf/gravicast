@@ -149,3 +149,21 @@ body {
 .mat-mdc-snack-bar-label .mdc-snackbar__label {
     font-family: "Rubik", sans-serif !important;
 }
+
+mat-tab-group .mat-mdc-tab .mdc-tab__text-label {
+  font-family: "Rubik", sans-serif !important;
+}
+
+mat-tab-group .mat-mdc-tab-body-content {
+  overflow: hidden !important;
+}
+
+mat-tab-group .mat-mdc-tab-body-content {
+  overflow: auto !important;
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
+
+mat-tab-group .mat-mdc-tab-body-content::-webkit-scrollbar {
+  display: none; 
+}

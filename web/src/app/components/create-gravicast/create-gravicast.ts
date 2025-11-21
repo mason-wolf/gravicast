@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -7,7 +7,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { Gravicast } from '../../models/gravicast';
 
@@ -37,9 +37,10 @@ export class CreateGravicast {
     ImageUrl: ''
   }
 
+
   constructor(private router: Router) {
-    
   }
+
 
   goBack() {
     this.router.navigate(['']);

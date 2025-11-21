@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Listing } from '../models/listing';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ListingService {
     private apiUrl = 'http://localhost:5076/api/listings';
-
-    listings: Listing[] = [];
 
     constructor(private http: HttpClient) {}
     /**
@@ -18,12 +17,20 @@ export class ListingService {
     createListing(listing : Listing) {
       return this.http.post<Listing>(`${this.apiUrl}`, listing);
     }
-
     /**
      * Gets listings.
      * @returns 
      */
-    getListings() : Listing[] {
-      return this.listings;
+    getListings() : Observable<Listing[]> {
+      return this.http.get<Listing[]>(`${this.apiUrl}`);
+    }
+    
+    /**
+     * Gets listings by user ID.
+     * @param userId 
+     * @returns  
+     */
+    getListingsByUserId(userId: number) : Observable<Listing[]> {
+      return this.http.get<Listing[]>(`${this.apiUrl}/user/${userId}`);
     }
   }

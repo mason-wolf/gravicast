@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gravicast.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251115222836_InitialCreate")]
+    [Migration("20251121155817_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -24,6 +24,10 @@ namespace Gravicast.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("CreatedAt")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("CustomUrl1")
                         .IsRequired()

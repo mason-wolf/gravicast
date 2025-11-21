@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule, provideNativeDateAdapter} from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Listing } from '../../models/listing';
 import { ListingService } from '../../services/listing-service';
 import {MatRadioModule} from '@angular/material/radio';
@@ -37,16 +37,40 @@ export class CreateListing {
     Owner: 0
   };
 
-  
-  constructor(private fb: FormBuilder, private router: Router, private listingService: ListingService) {
-    this.listingForm = this.fb.group({
-      start: [null],
-      end: [null]
+  id: string = '';
+  editMode: boolean = false;
+
+  constructor(
+    private fb: FormBuilder, 
+    private router: Router, 
+    private listingService: ListingService,
+    private route: ActivatedRoute
+  ) {
+      this.listingForm = this.fb.group({
+        start: [null],
+        end: [null]
+      });
+  }
+
+  ngOnInit() {
+        this.route.paramMap.subscribe(params => {
+          this.id = params.get('id')!; 
+          if (params) {
+            this.editMode = true;
+            // this.listingService.getListingById(+this.id).subscribe(res => {
+            //   this.listing = res;
+            // });
+          }
     });
   }
 
   goBack() {
-    this.router.navigate(['']);
+    if (this.editMode) {
+      this.router.navigate([`/profile`]);
+    }
+    else {
+      this.router.navigate(['']);
+    }
   }
 
   createListing() {

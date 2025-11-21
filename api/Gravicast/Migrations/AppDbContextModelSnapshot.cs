@@ -22,6 +22,10 @@ namespace Gravicast.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("CreatedAt")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("CustomUrl1")
                         .IsRequired()
                         .HasColumnType("TEXT");

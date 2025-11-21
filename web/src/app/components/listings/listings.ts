@@ -39,12 +39,19 @@ import { AuthService } from '../../services/auth-service';
     
     readonly dialog = inject(MatDialog);
     listings: Listing[] = [];
+    isLoggedIn = false;
 
     constructor(
       private router: Router, 
-      private listingService: ListingService
+      private listingService: ListingService,
+      private authService: AuthService
     ) {
-        this.listings = listingService.getListings();
+
+      this.isLoggedIn = this.authService.isLoggedIn();
+
+      this.listingService.getListings().subscribe(res => {
+        console.log(res);
+      })
     }
 
     createListing() {

@@ -1,0 +1,11 @@
+.listing {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.listing a {
+    text-decoration: none;
+    color: #00356e;
+}

@@ -9,18 +9,33 @@ import { UserDto } from '../../models/UserDto';
 import { FormsModule } from '@angular/forms';
 import { User } from '../../models/user';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {MatTabsModule} from '@angular/material/tabs';
+import { ListingService } from '../../services/listing-service';
+import { Listing } from '../../models/listing';
 
 @Component({
   selector: 'app-profile',
-  imports: [MatButtonModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, FormsModule],
+  imports: [
+    MatButtonModule, 
+    MatFormFieldModule, 
+    MatInputModule, 
+    ReactiveFormsModule, 
+    FormsModule,
+    MatTabsModule
+  ],
   templateUrl: './profile.html',
   styleUrl: './profile.css',
 })
 export class Profile {
   user: UserDto = new UserDto();
   private _snackBar = inject(MatSnackBar);
-
-  constructor(private router: Router, private userService: UserService) {}
+  listings: Listing[] = [];
+  
+  constructor(
+    private router: Router, 
+    private userService: UserService,
+    private listingService: ListingService
+  ){}
 
   ngOnInit() {
     this.loadUser();
@@ -29,9 +44,25 @@ export class Profile {
   loadUser() {
     this.userService.getUser().subscribe((user: UserDto) => {
       this.user = user;
+      this.getCreatedListings(user);
     });
   }
 
+  /**
+   * Gets listings created by the user.
+   * @param user 
+   */
+  getCreatedListings(user: UserDto) {
+    this.listingService.getListingsByUserId(user.Id).subscribe((listings: Listing[]) => {
+      this.listings = listings;
+      console.log(listings)
+    });
+  }
+
+  editListing(listingId: number) {
+    this.router.navigate([`/edit-listing/${listingId}`]);
+  }
+  
   goBack() {
     this.router.navigate(['/']);
   }

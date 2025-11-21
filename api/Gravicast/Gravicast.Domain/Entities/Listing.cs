@@ -11,4 +11,10 @@ public class Listing
     public string CustomUrl2 { get; set; } = string.Empty;
     public string Visibility { get; set; } = string.Empty;
     public int Owner { get; set; } = 0;
+    public string CreatedAt { get; set; } = string.Empty;
+
+    public Listing()
+    {
+        CreatedAt = DateTime.UtcNow.ToString();
+    }
 }

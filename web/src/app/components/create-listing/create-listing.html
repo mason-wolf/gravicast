@@ -1,6 +1,10 @@
 <div class="container">
   <button mat-raised-button class="btn-left" (click)="goBack()">Back</button><br><br><br>
-  <h1>Create Listing</h1>
+  @if(!editMode) {
+    <h1>Create Listing</h1>
+  } @else {
+    <h1>Edit Listing</h1>
+  }
   <mat-form-field appearance="outline">
     <mat-label>Title</mat-label>
     <input
@@ -47,7 +51,7 @@
       <input
         matInput
         placeholder="Thanks for your support!"
-        [(ngModel)]="listing.Location"
+        [(ngModel)]="listing.SupportMessage"
       />
   </mat-form-field>
     <mat-form-field appearance="outline">

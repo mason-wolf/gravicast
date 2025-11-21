@@ -25,7 +25,8 @@ namespace Gravicast.Migrations
                     CustomUrl1 = table.Column<string>(type: "TEXT", nullable: false),
                     CustomUrl2 = table.Column<string>(type: "TEXT", nullable: false),
                     Visibility = table.Column<string>(type: "TEXT", nullable: false),
-                    Owner = table.Column<int>(type: "INTEGER", nullable: false)
+                    Owner = table.Column<int>(type: "INTEGER", nullable: false),
+                    CreatedAt = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {

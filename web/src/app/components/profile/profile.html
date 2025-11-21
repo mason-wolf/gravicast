@@ -2,6 +2,8 @@
 
   <button mat-raised-button class="btn-left" (click)="goBack()">Back</button><br><br><br>
 
+  <mat-tab-group animationDuration="0ms">
+  <mat-tab label="Profile">
   <h1>Manage Profile</h1>
       <mat-form-field appearance="outline">
       <mat-label>Name</mat-label>
@@ -31,4 +33,22 @@
     </mat-form-field>
 
       <button mat-raised-button class="btn-right-green" (click)="updateProfile()">Save</button>
+  </mat-tab>
+    <mat-tab label="Listings">
+      <h1>Manage Listings</h1>
+      @for (listing of listings; track listing.Id) {
+        <div class="listing">
+          <a href="" (click)="editListing(listing.Id); $event.preventDefault()">{{listing.Title}}</a>
+        </div>
+        
+      }
+    </mat-tab>
+    <mat-tab label="Gravicasts">
+      <h1>Manage Gravicasts</h1>
+    </mat-tab>
+        <mat-tab label="Credits">
+      <h1>Credits</h1>
+    </mat-tab>
+  </mat-tab-group>
+
 </div>

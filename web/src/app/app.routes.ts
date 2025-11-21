@@ -9,15 +9,9 @@ import { Resgister } from './components/resgister/resgister';
 export const routes: Routes = [
   { path: '', component: Listings },
   { path: 'create-listing', component: CreateListing },
+  { path: 'edit-listing/:id', component: CreateListing },
   { path: 'create-gravicast', component: CreateGravicast},
   { path: 'profile', component: Profile},
   { path: 'login', component: Login},
   { path: 'register', component: Resgister}
 ];
-
-
-// {
-//     path: 'listings',
-//     component: ListingsComponent,
-//     canMatch: [() => inject(AuthService).isLoggedIn()]
-//   },
